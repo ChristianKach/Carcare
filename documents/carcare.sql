@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 16 avr. 2021 à 13:38
+-- Généré le :  mer. 18 août 2021 à 22:40
 -- Version du serveur :  5.7.26
--- Version de PHP :  5.6.40
+-- Version de PHP :  7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `carcare`
+-- Base de données :  `carcares`
 --
 
 -- --------------------------------------------------------
@@ -47,6 +47,33 @@ CREATE TABLE IF NOT EXISTS `client` (
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `evenement`
+--
+
+DROP TABLE IF EXISTS `evenement`;
+CREATE TABLE IF NOT EXISTS `evenement` (
+  `evenement_id` int(11) NOT NULL AUTO_INCREMENT,
+  `evenement_libelle` varchar(25) NOT NULL,
+  `vehicule_id` int(11) NOT NULL,
+  `garage_id` int(11) NOT NULL,
+  `evenement_date` date NOT NULL,
+  `evenement_heure` time NOT NULL,
+  PRIMARY KEY (`evenement_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `evenement`
+--
+
+INSERT INTO `evenement` (`evenement_id`, `evenement_libelle`, `vehicule_id`, `garage_id`, `evenement_date`, `evenement_heure`) VALUES
+(1, 'peinture', 4, 3, '2021-05-08', '17:29:11'),
+(3, 'peinture', 2, 2, '2021-05-06', '22:40:00'),
+(4, 'videnge de mon char', 4, 3, '2021-05-20', '02:12:00'),
+(5, 'changement d\'huile', 5, 4, '2021-05-22', '15:30:00');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `garage`
 --
 
@@ -57,14 +84,18 @@ CREATE TABLE IF NOT EXISTS `garage` (
   `garage_contact` varchar(25) NOT NULL,
   `garage_adresse` varchar(50) NOT NULL,
   PRIMARY KEY (`garage_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `garage`
 --
 
 INSERT INTO `garage` (`garage_id`, `garage_nom`, `garage_contact`, `garage_adresse`) VALUES
-(1, 'paix', '50662052', '287 pleoa street');
+(1, 'paix', '50662052', '287 pleoa street'),
+(2, 'Joie', '50662052', '287 pleoa street'),
+(3, 'amour', '50662052', '287 pleoa street'),
+(4, 'ipno', '5066969868', '435 riverside'),
+(5, 'CCNBRepair', '12458893', '75 Rue dun college');
 
 -- --------------------------------------------------------
 
@@ -98,16 +129,18 @@ DROP TABLE IF EXISTS `service`;
 CREATE TABLE IF NOT EXISTS `service` (
   `service_id` int(11) NOT NULL AUTO_INCREMENT,
   `service_libelle` varchar(25) NOT NULL,
-  `service_cout` varchar(25) NOT NULL,
   PRIMARY KEY (`service_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `service`
 --
 
-INSERT INTO `service` (`service_id`, `service_libelle`, `service_cout`) VALUES
-(1, 'reparation', 'hgy');
+INSERT INTO `service` (`service_id`, `service_libelle`) VALUES
+(1, 'reparation'),
+(2, 'aka'),
+(3, 'PCA'),
+(4, 'entretien');
 
 -- --------------------------------------------------------
 
@@ -123,10 +156,22 @@ CREATE TABLE IF NOT EXISTS `travaux` (
   `garage_id` int(11) NOT NULL,
   `service_id` int(11) NOT NULL,
   `travaux_date` date NOT NULL,
-  `travaux_prochain` date NOT NULL,
   `travaux_info` varchar(200) NOT NULL,
+  `travaux_cout` double NOT NULL,
   PRIMARY KEY (`travaux_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `travaux`
+--
+
+INSERT INTO `travaux` (`travaux_id`, `travaux_libelle`, `vehicule_id`, `garage_id`, `service_id`, `travaux_date`, `travaux_info`, `travaux_cout`) VALUES
+(2, 'reparation pneu', 2, 1, 1, '2021-04-22', 'yuuuvy yguy yug  uuuyu', 5987),
+(5, 'soudure', 2, 1, 1, '2021-04-10', 'hgfygh', 5000),
+(4, 'assemblage', 2, 2, 1, '2021-04-17', 'hgfygh jgw', 50000),
+(7, 'changemement du frein', 5, 4, 4, '2021-04-02', 'je me nomme', 88),
+(8, 'entretien', 5, 4, 4, '2021-05-22', 'entretien complet du vehicule', 732.69),
+(9, 'Changement d\'huile', 6, 5, 4, '2021-05-22', 'Entretien Moteur', 70);
 
 -- --------------------------------------------------------
 
@@ -164,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
   `vehicule_modele` varchar(25) NOT NULL,
   `vehicule_annee` varchar(25) NOT NULL,
   PRIMARY KEY (`vehicule_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `vehicule`
@@ -172,7 +217,10 @@ CREATE TABLE IF NOT EXISTS `vehicule` (
 
 INSERT INTO `vehicule` (`vehicule_id`, `vehicule_nom`, `vehicule_marque`, `vehicule_modele`, `vehicule_annee`) VALUES
 (1, 'Honda', 'honda', 'crv1', '2015'),
-(2, 'chevrolet', 'chevrolet', 'crv', '2010');
+(2, 'chevrolet', 'chevrolet', 'crv', '2010'),
+(4, 'mercedes', 'benz', 'crv', '2015'),
+(5, 'Tesla', 'Tesla', 'model y', '2021'),
+(6, 'Camry', 'Toyota', 'SUV', '2015');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
