@@ -19,7 +19,7 @@
  *
  */
 
-    date_default_timezone_set('Africa/Abidjan'); 
+    //date_default_timezone_set('Canada/Moncton'); 
 
 	$defines_file = 'includes/properties.php';
 	if (file_exists($defines_file)){

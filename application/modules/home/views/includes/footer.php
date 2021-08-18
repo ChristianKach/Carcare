@@ -1,7 +1,7 @@
  <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Zoe Ministrie - Propulsé par <a href="http://www.matlle.com" target="_blank">Matlle</a>
+            Carcare - Propulsé par <a href="" target="_blank">Team carcare</a>
           </div>
           <div class="clearfix"></div>
         </footer>

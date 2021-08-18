@@ -40,7 +40,7 @@ class User extends MX_Controller {
             }
         }
 
-        $this->load->view('user/view_login', $data);
+            $this->load->view('user/view_login', $data);
     }
 
     public function logout() {
@@ -48,12 +48,5 @@ class User extends MX_Controller {
         redirect('user/connexion');
     }
 
-    
-
-    
-
-
 }
-
-/* End of file home.php */
-/* Location: ./application/modules/home/controllers/home.php */ ?>
+?>

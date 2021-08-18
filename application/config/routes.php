@@ -41,36 +41,16 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 
-$route['adherant/import-adherant'] = "adherant/importadherant";
-$route['adherant/delete-many'] = "adherant/deletemany";
-$route['adherant/send-sms-process'] = "adherant/sendsmsprocess";
-$route['adherant/sms-sending-state'] = "adherant/getsmssendingstate";
+$route['evenement/delete-many'] = "evenement/deletemany"; 
+$route['vehicule/delete-many'] = "vehicule/deletemany"; 
+$route['garage/delete-many'] = "garage/deletemany"; 
+$route['accueil/delete-many'] = "accueil/deletemany"; 
+$route['client/delete-many'] = "client/deletemany"; 
+$route['service/delete-many'] = "service/deletemany"; 
+$route['travaux/delete-many'] = "travaux/deletemany"; 
+$route['statistique/delete-many'] = "statistique/deletemany";
 
-$route['package/delete-many'] = "package/deletemany";
 
-$route['articletype/delete-many'] = "articletype/deletemany";
-
-$route['article/delete-many'] = "article/deletemany";
-
-$route['materiel/delete-many'] = "materiel/deletemany";
-
-$route['batiment/delete-many'] = "batiment/deletemany";
-
-$route['salle/delete-many'] = "salle/deletemany";
-
-$route['salleadherant/add-in-salle'] = "salleadherant/addinsalle";
-
-$route['semaine/delete-many'] = "semaine/deletemany";
-
-$route['meditation/delete-many'] = "meditation/deletemany";
-
-$route['presence/add-meditation'] = "presence/addmeditation";
-
-$route['malade/delete-many'] = "malade/deletemany";
-
-$route['traitement/delete-many'] = "traitement/deletemany";
-
-$route['famille/delete-many'] = "famille/deletemany";
 
 
 /* End of file routes.php */

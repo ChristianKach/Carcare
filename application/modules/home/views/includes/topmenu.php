@@ -17,13 +17,13 @@
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;"> Profile</a></li>
+                    <li><a href="<?php echo site_url(); ?>client/view_profite"> Profile</a></li>
                     <li>
                       <a href="javascript:;">
                         <span> Paramètres</span>
                       </a>
                     </li>
-                    <li><a href="http://www.matlle.com">Aide</a></li>
+                    <li><a href="">Aide</a></li>
                     <li><a href="<?php echo site_url('user/logout'); ?>"><i class="fa fa-sign-out pull-right"></i> Déconnexion</a></li>
                   </ul>
                 </li>
